@@ -1,91 +1,126 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 text-gray-800">
+    <div className="flex flex-col min-h-screen bg-white text-gray-900 font-sans">
+      {/* Header */}
+      <Header />
+
       {/* Hero Section */}
-      <header className="bg-gradient-to-r from-blue-700 to-blue-500 text-white">
-        <div className="container mx-auto px-6 py-20 flex flex-col items-center text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Professional Door Installation Services
+      <section className="relative h-screen flex flex-col items-center justify-center text-center bg-gray-900 text-white">
+        <img
+          src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154"
+          alt="Modern Door"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+        />
+        <div className="relative z-10 px-6">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+            Redefining Door Installation
           </h1>
-          <p className="max-w-2xl text-lg md:text-xl mb-8">
-            High-quality, secure, and stylish door solutions for your home and business.
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-200 mb-8">
+            Where security meets design — premium doors that transform your
+            space with elegance and strength.
           </p>
           <Link
             to="/contact"
-            className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition"
+            className="px-8 py-4 bg-white text-gray-900 font-semibold rounded-full shadow-lg hover:bg-gray-100 transition"
           >
-            Get a Free Quote
+            Get Started
           </Link>
         </div>
-      </header>
+      </section>
 
-      {/* Services Section */}
-      <section className="container mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
-        <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 className="text-xl font-bold mb-3">Residential Doors</h3>
+      {/* Services */}
+      <section className="py-24 container mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1628744874144-5f05d39b1c1e"
+            alt="Residential"
+            className="rounded-xl mb-6 shadow-lg"
+          />
+          <h3 className="text-2xl font-semibold mb-3">Residential</h3>
           <p className="text-gray-600">
-            Enhance your home’s security and style with expertly installed front,
-            patio, and interior doors.
+            Elevate your home with stylish, durable, and secure doors crafted
+            for comfort and design.
           </p>
         </div>
-        <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 className="text-xl font-bold mb-3">Commercial Doors</h3>
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1600585154356-596af9009c39"
+            alt="Commercial"
+            className="rounded-xl mb-6 shadow-lg"
+          />
+          <h3 className="text-2xl font-semibold mb-3">Commercial</h3>
           <p className="text-gray-600">
-            Reliable, durable, and secure door systems tailored for offices,
-            shops, and industrial spaces.
+            Advanced solutions for offices, retail, and industry — doors that
+            protect and impress.
           </p>
         </div>
-        <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 className="text-xl font-bold mb-3">Custom Solutions</h3>
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1604014237827-09f8a1ecfba2"
+            alt="Custom"
+            className="rounded-xl mb-6 shadow-lg"
+          />
+          <h3 className="text-2xl font-semibold mb-3">Custom</h3>
           <p className="text-gray-600">
-            From glass doors to fire-rated systems, we provide custom
-            installations that fit your needs.
+            Tailored designs for unique spaces — glass, steel, or fire-rated,
+            built just for you.
           </p>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="bg-gray-100 py-16">
+      {/* About */}
+      <section className="bg-gray-50 py-24">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-4">Why Choose Us?</h2>
-            <p className="text-gray-700 mb-6">
-              With years of expertise in the industry, we deliver top-notch
-              door installation services that prioritize safety, aesthetics, and
-              durability.
+            <h2 className="text-4xl font-extrabold mb-6">
+              Craftsmanship You Can Trust
+            </h2>
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              Our team blends innovation with tradition to bring doors that
+              redefine security and elegance. From consultation to installation,
+              we ensure precision in every step.
             </p>
-            <ul className="space-y-3 text-gray-700">
-              <li>✔️ Experienced and certified installers</li>
-              <li>✔️ Premium-quality doors and materials</li>
-              <li>✔️ Competitive pricing</li>
-              <li>✔️ Fast, reliable, and clean installations</li>
-            </ul>
+            <Link
+              to="/about"
+              className="px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-700 transition"
+            >
+              Learn More
+            </Link>
           </div>
           <div>
             <img
-              src="https://images.unsplash.com/photo-1600585154356-596af9009c39"
-              alt="Door Installation"
-              className="rounded-xl shadow-md"
+              src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154"
+              alt="Craftsmanship"
+              className="rounded-2xl shadow-xl"
             />
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <footer className="bg-blue-700 text-white py-12 text-center">
-        <h3 className="text-2xl font-bold mb-4">
-          Ready to upgrade your doors?
+      {/* CTA */}
+      <section className="py-24 bg-gray-900 text-white text-center">
+        <h3 className="text-3xl md:text-5xl font-bold mb-6">
+          Ready to Upgrade Your Space?
         </h3>
+        <p className="text-lg mb-10 text-gray-300">
+          Discover doors that are more than entryways — they’re statements of
+          style and security.
+        </p>
         <Link
           to="/contact"
-          className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg shadow-md hover:bg-gray-100 transition"
+          className="px-10 py-4 bg-white text-gray-900 font-semibold rounded-full shadow-lg hover:bg-gray-200 transition"
         >
           Contact Us Today
         </Link>
-      </footer>
+      </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }
