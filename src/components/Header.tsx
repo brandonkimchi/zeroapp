@@ -20,7 +20,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/100 backdrop-blur-md shadow py-3"
+          ? "bg-white shadow py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -34,31 +34,25 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop Nav */}
-        <nav
-          className={`hidden md:flex space-x-10 text-lg font-medium ${
-            isScrolled ? "text-gray-900" : "text-white"
-          }`}
-        >
-          {["Home", "About", "Services", "Contact"].map((item) => (
+        {/* Desktop Nav (always black) */}
+        <nav className="hidden md:flex space-x-10 text-lg font-medium text-gray-900">
+          {["Home", "Projects", "Contact Us"].map((item) => (
             <Link
               key={item}
               to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
               className="relative group"
             >
-              <span className="hover:text-blue-600 transition">{item}</span>
+              <span className="hover:text-green-600 transition">{item}</span>
               <span
-                className={`absolute left-0 -bottom-1 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                  isScrolled ? "bg-blue-600" : "bg-white"
-                }`}
+                className="absolute left-0 -bottom-1 w-0 h-0.5 bg-green-600 transition-all duration-300 group-hover:w-full"
               ></span>
             </Link>
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button (always black) */}
         <button
-          className={`md:hidden ${isScrolled ? "text-gray-900" : "text-white"}`}
+          className="md:hidden text-gray-900"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -67,13 +61,13 @@ export default function Header() {
 
       {/* Mobile Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md shadow-lg">
-          <nav className="flex flex-col space-y-4 px-6 py-4 text-lg font-medium">
+        <div className="md:hidden bg-white shadow-lg">
+          <nav className="flex flex-col space-y-4 px-6 py-4 text-lg font-medium text-gray-900">
             {["Home", "About", "Services", "Contact"].map((item) => (
               <Link
                 key={item}
                 to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="hover:text-blue-600 transition text-gray-900"
+                className="hover:text-green-600 transition"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item}
