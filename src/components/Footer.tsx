@@ -1,4 +1,3 @@
-import React from "react"
 import zerologo from "../assets/images/zerologo.png"
 
 export default function Footer() {
