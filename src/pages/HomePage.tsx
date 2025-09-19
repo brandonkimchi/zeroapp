@@ -15,10 +15,10 @@ export default function HomePage() {
 
     emailjs
       .sendForm(
-        "your_service_id", // replace with EmailJS Service ID
-        "your_template_id", // replace with EmailJS Template ID
+        "your_service_id",
+        "your_template_id",
         formRef.current,
-        "your_public_key" // replace with EmailJS Public Key
+        "your_public_key"
       )
       .then(
         () => {
@@ -154,29 +154,48 @@ export default function HomePage() {
               <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
                 <svg
                   viewBox="0 0 600 450"
-                  className="w-full h-auto"
+                  className="w-full h-64 sm:h-80 lg:h-auto"
                   preserveAspectRatio="xMidYMid meet"
                 >
                   {/* Layer 4 */}
-                  <motion.g initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 }}>
+                  <motion.g
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                  >
                     <path d="M100 340 L400 340 L480 260 L180 260 Z" fill="#2A3A38" stroke="#1A2A28" strokeWidth="2" />
                     <path d="M400 340 L480 260 L480 300 L400 380 Z" fill="#1A2A28" stroke="#0A1A18" strokeWidth="2" />
                     <path d="M100 340 L400 340 L400 380 L100 380 Z" fill="#222A28" stroke="#1A2A28" strokeWidth="2" />
                   </motion.g>
+
                   {/* Layer 3 */}
-                  <motion.g initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
+                  <motion.g
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                  >
                     <path d="M100 250 L400 250 L480 170 L180 170 Z" fill="#5B6A68" stroke="#4B5A58" strokeWidth="2" />
                     <path d="M400 250 L480 170 L480 210 L400 290 Z" fill="#4B5A58" stroke="#3B4A48" strokeWidth="2" />
                     <path d="M100 250 L400 250 L400 290 L100 290 Z" fill="#555A58" stroke="#4B5A58" strokeWidth="2" />
                   </motion.g>
+
                   {/* Layer 2 */}
-                  <motion.g initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
+                  <motion.g
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
                     <path d="M100 160 L400 160 L480 80 L180 80 Z" fill="#7A8A78" stroke="#6A7A68" strokeWidth="2" />
                     <path d="M400 160 L480 80 L480 120 L400 200 Z" fill="#6A7A68" stroke="#5A6A58" strokeWidth="2" />
                     <path d="M100 160 L400 160 L400 200 L100 200 Z" fill="#707A68" stroke="#6A7A68" strokeWidth="2" />
                   </motion.g>
+
                   {/* Layer 1 */}
-                  <motion.g initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+                  <motion.g
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
                     <path d="M100 70 L400 70 L480 -10 L180 -10 Z" fill="#B8C5B0" stroke="#A8B5A0" strokeWidth="2" />
                     <path d="M400 70 L480 -10 L480 30 L400 110 Z" fill="#A8B5A0" stroke="#98A590" strokeWidth="2" />
                     <path d="M100 70 L400 70 L400 110 L100 110 Z" fill="#B0B5A0" stroke="#A8B5A0" strokeWidth="2" />
