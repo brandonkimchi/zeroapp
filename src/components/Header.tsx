@@ -20,13 +20,13 @@ export default function Header() {
         isScrolled ? "bg-white shadow py-3" : "bg-white py-5"
       }`}
     >
-      <div className="flex justify-between items-center px-12 lg:px-20">
+      <div className="flex justify-between items-center px-4 lg:px-20">
         {/* Logo → scroll to top */}
         <a href="#home" className="flex items-center space-x-2">
           <img
             src={zerologo}
             alt="ZeroApp Doors Logo"
-            className="h-14 w-auto transition-transform duration-300 hover:scale-105"
+            className="h-10 lg:h-14 w-auto transition-transform duration-300 hover:scale-105"
           />
         </a>
 
