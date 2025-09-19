@@ -1,9 +1,9 @@
 import React from "react"
-import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { CheckCircle, Phone, Mail } from "lucide-react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import doorImage from "../assets/images/door.jpg"
 
 export default function HomePage() {
   return (
@@ -11,26 +11,33 @@ export default function HomePage() {
       {/* Header */}
       <Header />
 
-      {/* Hero Section with light grey background */}
-      <section className="bg-gray-50">
+      {/* Hero Section */}
+      <section id="home">
         <div className="container mx-auto px-6 lg:px-20 pt-40 pb-32 grid md:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div>
             <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight mb-8">
               Sustainable Door Solutions for Your{" "}
-              <span className="text-green-600">Future</span>
+              <span style={{ color: "#005d28" }}>Future</span>
             </h1>
             <p className="text-lg lg:text-xl text-gray-600 mb-10 max-w-xl">
               Premium eco-friendly doors that combine exceptional durability,
               energy efficiency, and environmental responsibility for modern
               homes.
             </p>
-            <Link
-              to="/contact"
-              className="px-8 py-4 bg-green-600 text-white font-semibold rounded-lg shadow hover:bg-green-700 transition"
+            <a
+              href="#contact"
+              className="px-8 py-4 text-white font-semibold rounded-lg shadow transition"
+              style={{ backgroundColor: "#005d28" }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "#004520")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "#005d28")
+              }
             >
               Get a Free Quote
-            </Link>
+            </a>
           </div>
 
           {/* Right Image */}
@@ -41,8 +48,7 @@ export default function HomePage() {
             className="flex justify-center"
           >
             <img
-              src="https://images.unsplash.com/photo-1560185008-b033106af510"
-              alt="Modern Door"
+              src={doorImage}
               className="rounded-2xl shadow-lg w-full max-w-lg"
             />
           </motion.div>
@@ -50,77 +56,98 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-6 lg:px-20 py-28 text-center">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl font-bold mb-14"
-        >
-          Key <span className="text-green-600">Features</span> of Our Doors
-        </motion.h2>
-        <div className="grid md:grid-cols-4 gap-12">
-          {[
-            {
-              title: "Eco-Friendly & Healthy",
-              desc: "Made with FRP, carbon fiber, wood fiber, and eco-friendly plant fibers, processed with advanced German technology.",
-            },
-            {
-              title: "Premium Materials",
-              desc: "Meets E0-grade environmental standards with low formaldehyde emissions.",
-            },
-            {
-              title: "Durable & Stable",
-              desc: "Strong, stable performance with excellent resistance to moisture, fire, and wear.",
-            },
-            {
-              title: "Easy To Clean",
-              desc: "Non-absorbent, smooth surface that doesn’t bubble or peel.",
-            },
-          ].map((feature, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.2 }}
-              className="p-8 bg-gray-50 rounded-xl shadow hover:shadow-lg transition"
-            >
-              <CheckCircle className="w-12 h-12 text-green-600 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-gray-600">{feature.desc}</p>
-            </motion.div>
-          ))}
+      <section className="bg-gray-50 py-28">
+        <div className="container mx-auto px-6 lg:px-20">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl lg:text-4xl font-bold text-center mb-20"
+          >
+            Key <span style={{ color: "#005d28" }}>Features</span> of Our Doors
+          </motion.h2>
+
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Eco-Friendly & Healthy",
+                desc: "Made with FRP, carbon fiber, wood fiber, and eco-friendly plant fibers, processed with advanced German technology.",
+              },
+              {
+                title: "Premium Materials",
+                desc: "Meets E0-grade environmental standards with low formaldehyde emissions.",
+              },
+              {
+                title: "Durable & Stable",
+                desc: "Strong, stable performance with excellent resistance to moisture, fire, and wear.",
+              },
+              {
+                title: "Easy To Clean",
+                desc: "Non-absorbent, smooth surface that doesn't bubble or peel.",
+              },
+            ].map((feature, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: idx * 0.1 }}
+                className="group bg-white p-8 rounded-lg shadow-sm hover:shadow-lg border border-gray-200 transition-all duration-500 cursor-pointer relative overflow-hidden"
+              >
+                <div
+                  className="w-14 h-14 rounded-lg flex items-center justify-center group-hover:scale-105 transition-all duration-300 mb-6"
+                  style={{ backgroundColor: "#005d28" }}
+                >
+                  <CheckCircle className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4 leading-tight">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {feature.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Project Highlight */}
-      <section className="container mx-auto px-6 lg:px-20 py-28">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="bg-green-700 text-white rounded-2xl p-12 grid md:grid-cols-2 gap-12 items-center"
-        >
-          <div>
-            <h3 className="text-3xl font-semibold mb-6">
-              Carbon Neutral Installation Process
-            </h3>
-            <ul className="space-y-4 text-lg">
-              <li>✔️ Zero-waste installation</li>
-              <li>✔️ Electric vehicle fleet</li>
-              <li>✔️ Verified carbon-offset programs</li>
-            </ul>
+      {/* Our Projects Section */}
+      <section id="projects" className="bg-gray-50 py-20">
+        <div className="container mx-auto px-6 lg:px-20">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl lg:text-4xl font-bold text-center mb-12"
+          >
+            Our <span style={{ color: "#005d28" }}>Projects</span>
+          </motion.h2>
+
+          <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+            {Array(4)
+              .fill(null)
+              .map((_, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  className="snap-center flex-shrink-0 w-[75%] md:w-[50%] lg:w-[35%] bg-white rounded-xl shadow hover:shadow-lg transition flex items-center justify-center h-64"
+                >
+                  <span className="text-gray-500 text-lg font-semibold">
+                    Coming Soon
+                  </span>
+                </motion.div>
+              ))}
           </div>
-          <img
-            src="https://images.unsplash.com/photo-1604014237827-09f8a1ecfba2"
-            alt="Project"
-            className="rounded-xl shadow-lg"
-          />
-        </motion.div>
+        </div>
       </section>
 
       {/* Contact Section */}
-      <section className="container mx-auto px-6 lg:px-20 py-28 grid md:grid-cols-2 gap-16 items-start">
+      <section
+        id="contact"
+        className="container mx-auto px-6 lg:px-20 py-28 grid md:grid-cols-2 gap-16 items-start"
+      >
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -130,34 +157,29 @@ export default function HomePage() {
             Ready to Transform Your Home?
           </h2>
           <p className="text-gray-600 mb-8">
-            Get in touch for a free consultation and quote.
+            Get in touch for a consultation and quote.
           </p>
           <p className="flex items-center space-x-3 mb-4">
-            <Phone className="text-green-600 w-5 h-5" /> <span>(123) 555-6787</span>
+            <Phone style={{ color: "#005d28" }} className="w-5 h-5" />
+            <span>+65 86442667</span>
           </p>
           <p className="flex items-center space-x-3">
-            <Mail className="text-green-600 w-5 h-5" />{" "}
-            <span>zeroapp@doors.com</span>
+            <Mail style={{ color: "#005d28" }} className="w-5 h-5" />
+            <span>zerodoor.sg@gmail.com</span>
           </p>
         </motion.div>
+
         <motion.form
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="bg-white p-10 rounded-xl shadow-lg space-y-6"
         >
-          <div className="grid md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              placeholder="First Name"
-              className="p-3 border rounded-lg w-full"
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              className="p-3 border rounded-lg w-full"
-            />
-          </div>
+          <input
+            type="text"
+            placeholder="Name"
+            className="p-3 border rounded-lg w-full"
+          />
           <input
             type="email"
             placeholder="Email"
@@ -168,11 +190,6 @@ export default function HomePage() {
             placeholder="Phone"
             className="p-3 border rounded-lg w-full"
           />
-          <select className="p-3 border rounded-lg w-full">
-            <option>Front Door Replacement</option>
-            <option>Patio Door</option>
-            <option>Custom Door</option>
-          </select>
           <textarea
             placeholder="Message"
             rows={4}
@@ -180,7 +197,14 @@ export default function HomePage() {
           />
           <button
             type="submit"
-            className="w-full py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition"
+            className="w-full py-3 text-white font-semibold rounded-lg transition"
+            style={{ backgroundColor: "#005d28" }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "#004520")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "#005d28")
+            }
           >
             Send Message
           </button>
