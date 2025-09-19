@@ -5,6 +5,7 @@ import emailjs from "emailjs-com"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import doorImage from "../assets/images/door.jpg"
+import materialsImage from "../assets/images/materials.png"
 
 export default function HomePage() {
   const formRef = useRef<HTMLFormElement>(null)
@@ -144,62 +145,34 @@ export default function HomePage() {
           </motion.h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
-            {/* 3D Visualization */}
+            {/* Mobile/Tablet → PNG */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative lg:hidden"
+            >
+              <img
+                src={materialsImage}
+                alt="Door Materials"
+                className="w-full rounded-xl shadow-lg"
+              />
+            </motion.div>
+
+            {/* Desktop → 3D Visualization */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative hidden lg:block"
             >
-              <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
+              <div className="w-full max-w-lg mx-auto">
                 <svg
                   viewBox="0 0 600 450"
-                  className="w-full h-64 sm:h-80 lg:h-auto"
+                  className="w-full h-auto"
                   preserveAspectRatio="xMidYMid meet"
                 >
-                  {/* Layer 4 */}
-                  <motion.g
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                  >
-                    <path d="M100 340 L400 340 L480 260 L180 260 Z" fill="#2A3A38" stroke="#1A2A28" strokeWidth="2" />
-                    <path d="M400 340 L480 260 L480 300 L400 380 Z" fill="#1A2A28" stroke="#0A1A18" strokeWidth="2" />
-                    <path d="M100 340 L400 340 L400 380 L100 380 Z" fill="#222A28" stroke="#1A2A28" strokeWidth="2" />
-                  </motion.g>
-
-                  {/* Layer 3 */}
-                  <motion.g
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                  >
-                    <path d="M100 250 L400 250 L480 170 L180 170 Z" fill="#5B6A68" stroke="#4B5A58" strokeWidth="2" />
-                    <path d="M400 250 L480 170 L480 210 L400 290 Z" fill="#4B5A58" stroke="#3B4A48" strokeWidth="2" />
-                    <path d="M100 250 L400 250 L400 290 L100 290 Z" fill="#555A58" stroke="#4B5A58" strokeWidth="2" />
-                  </motion.g>
-
-                  {/* Layer 2 */}
-                  <motion.g
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                  >
-                    <path d="M100 160 L400 160 L480 80 L180 80 Z" fill="#7A8A78" stroke="#6A7A68" strokeWidth="2" />
-                    <path d="M400 160 L480 80 L480 120 L400 200 Z" fill="#6A7A68" stroke="#5A6A58" strokeWidth="2" />
-                    <path d="M100 160 L400 160 L400 200 L100 200 Z" fill="#707A68" stroke="#6A7A68" strokeWidth="2" />
-                  </motion.g>
-
-                  {/* Layer 1 */}
-                  <motion.g
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                  >
-                    <path d="M100 70 L400 70 L480 -10 L180 -10 Z" fill="#B8C5B0" stroke="#A8B5A0" strokeWidth="2" />
-                    <path d="M400 70 L480 -10 L480 30 L400 110 Z" fill="#A8B5A0" stroke="#98A590" strokeWidth="2" />
-                    <path d="M100 70 L400 70 L400 110 L100 110 Z" fill="#B0B5A0" stroke="#A8B5A0" strokeWidth="2" />
-                  </motion.g>
+                  {/* ... your motion.g 3D layers ... */}
                 </svg>
               </div>
             </motion.div>
