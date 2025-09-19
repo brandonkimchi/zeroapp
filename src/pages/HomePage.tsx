@@ -153,7 +153,7 @@ export default function HomePage() {
               className="relative lg:hidden"
             >
               <img
-                src={require("../assets/images/materials.png")}
+                src={materialsImage}
                 alt="Door Materials"
                 className="w-full rounded-xl shadow-lg"
               />
