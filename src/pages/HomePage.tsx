@@ -33,13 +33,13 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex flex-col bg-white text-gray-900 font-sans">
+    <div className="flex flex-col bg-white text-gray-900 font-sans overflow-x-hidden">
       {/* Header */}
       <Header />
 
       {/* Hero Section */}
       <section id="home">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-20 pt-24 sm:pt-32 lg:pt-40 pb-16 sm:pb-24 lg:pb-32 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-20 pt-32 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 lg:pb-32 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left Content */}
           <div>
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold leading-tight mb-6 sm:mb-8">
@@ -139,19 +139,18 @@ export default function HomePage() {
       </section>
 
       {/* Door Construction Section */}
-      <section className="py-16 sm:py-20 lg:py-28 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-20">
+      <section className="py-28 bg-white">
+        <div className="container mx-auto px-6 lg:px-20">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-12 sm:mb-16 lg:mb-20"
+            className="text-3xl lg:text-4xl font-bold text-center mb-20"
           >
-            Advanced{" "}
-            <span className="text-[#005d28]">Multi-Layer Construction</span>
+            Advanced <span style={{ color: '#005d28' }}>Multi-Layer Construction</span>
           </motion.h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* 3D Visualization */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -159,61 +158,111 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
-                {/* SVG unchanged */}
-                {/* ... keep your SVG layers here ... */}
+              <div className="w-full max-w-lg mx-auto">
+                <svg viewBox="0 0 600 450" className="w-full h-auto">
+                  {/* Layer 4 - Bottom Layer */}
+                  <motion.g
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                  >
+                    {/* Top face */}
+                    <path d="M100 340 L400 340 L480 260 L180 260 Z" fill="#2A3A38" stroke="#1A2A28" strokeWidth="2" />
+                    {/* Right face */}
+                    <path d="M400 340 L480 260 L480 300 L400 380 Z" fill="#1A2A28" stroke="#0A1A18" strokeWidth="2" />
+                    {/* Front face */}
+                    <path d="M100 340 L400 340 L400 380 L100 380 Z" fill="#222A28" stroke="#1A2A28" strokeWidth="2" />
+                  </motion.g>
+
+                  {/* Layer 3 - Core Layer */}
+                  <motion.g
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                  >
+                    {/* Top face */}
+                    <path d="M100 250 L400 250 L480 170 L180 170 Z" fill="#5B6A68" stroke="#4B5A58" strokeWidth="2" />
+                    {/* Right face */}
+                    <path d="M400 250 L480 170 L480 210 L400 290 Z" fill="#4B5A58" stroke="#3B4A48" strokeWidth="2" />
+                    {/* Front face */}
+                    <path d="M100 250 L400 250 L400 290 L100 290 Z" fill="#555A58" stroke="#4B5A58" strokeWidth="2" />
+                  </motion.g>
+
+                  {/* Layer 2 - Surface Layer */}
+                  <motion.g
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                  >
+                    {/* Top face */}
+                    <path d="M100 160 L400 160 L480 80 L180 80 Z" fill="#7A8A78" stroke="#6A7A68" strokeWidth="2" />
+                    {/* Right face */}
+                    <path d="M400 160 L480 80 L480 120 L400 200 Z" fill="#6A7A68" stroke="#5A6A58" strokeWidth="2" />
+                    {/* Front face */}
+                    <path d="M100 160 L400 160 L400 200 L100 200 Z" fill="#707A68" stroke="#6A7A68" strokeWidth="2" />
+                  </motion.g>
+
+                  {/* Layer 1 - Top Layer */}
+                  <motion.g
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    {/* Top face */}
+                    <path d="M100 70 L400 70 L480 -10 L180 -10 Z" fill="#B8C5B0" stroke="#A8B5A0" strokeWidth="2" />
+                    {/* Right face */}
+                    <path d="M400 70 L480 -10 L480 30 L400 110 Z" fill="#A8B5A0" stroke="#98A590" strokeWidth="2" />
+                    {/* Front face */}
+                    <path d="M100 70 L400 70 L400 110 L100 110 Z" fill="#B0B5A0" stroke="#A8B5A0" strokeWidth="2" />
+                  </motion.g>
+                </svg>
               </div>
             </motion.div>
 
-            {/* Layer Descriptions */}
+            {/* Layer Descriptions - Matching your exact format */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 sm:space-y-8"
+              className="space-y-8"
             >
               {[
                 {
                   title: "Top Layer",
                   desc: "Thousand-ton press finish",
-                  delay: 0.2,
+                  delay: 0.2
                 },
                 {
                   title: "Surface Layer",
                   desc: "Melamine-urea-formaldehyde decorative film",
-                  delay: 0.4,
+                  delay: 0.4
                 },
                 {
                   title: "Core Layer",
                   desc: "FRP/Carbon fiber-reinforced polymer",
-                  delay: 0.6,
+                  delay: 0.6
                 },
                 {
                   title: "Bottom Layer",
                   desc: "Moisture resistant balance layer",
-                  delay: 0.8,
-                },
+                  delay: 0.8
+                }
               ].map((layer, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: layer.delay }}
-                  className="flex items-start gap-3 sm:gap-4 group cursor-pointer"
+                  className="flex items-start gap-4 group cursor-pointer"
                 >
-                  <div
-                    className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-all duration-300"
-                    style={{ backgroundColor: "#005d28" }}
-                  >
-                    <span className="text-white font-bold text-base sm:text-lg">
-                      {idx + 1}
-                    </span>
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-all duration-300" style={{ backgroundColor: '#005d28' }}>
+                    <span className="text-white font-bold text-lg">{idx + 1}</span>
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2 group-hover:text-gray-700 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-700 transition-colors duration-300">
                       {layer.title}
                     </h3>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed">
                       {layer.desc}
                     </p>
                   </div>
@@ -236,7 +285,8 @@ export default function HomePage() {
             Our <span className="text-[#005d28]">Projects</span>
           </motion.h2>
 
-          <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+          {/* changed to grid (no horizontal scroll) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {Array(4)
               .fill(null)
               .map((_, idx) => (
@@ -245,7 +295,7 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="snap-center flex-shrink-0 w-[85%] sm:w-[60%] md:w-[45%] lg:w-[35%] bg-white rounded-xl shadow hover:shadow-lg transition flex items-center justify-center h-48 sm:h-64"
+                  className="bg-white rounded-xl shadow hover:shadow-lg transition flex items-center justify-center h-48 sm:h-64"
                 >
                   <span className="text-gray-500 text-base sm:text-lg font-semibold">
                     Coming Soon
