@@ -33,7 +33,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex flex-col bg-white text-gray-900 font-sans overflow-x-hidden">
+    <div className="flex flex-col bg-white text-gray-900 font-sans">
       {/* Header */}
       <Header />
 
@@ -160,7 +160,8 @@ export default function HomePage() {
               className="relative"
             >
               <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
-                {/* your SVG here (unchanged) */}
+                {/* SVG unchanged */}
+                {/* ... keep your SVG layers here ... */}
               </div>
             </motion.div>
 
@@ -235,8 +236,7 @@ export default function HomePage() {
             Our <span className="text-[#005d28]">Projects</span>
           </motion.h2>
 
-          {/* changed from horizontal scroll to responsive grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
             {Array(4)
               .fill(null)
               .map((_, idx) => (
@@ -245,7 +245,7 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="bg-white rounded-xl shadow hover:shadow-lg transition flex items-center justify-center h-48 sm:h-64"
+                  className="snap-center flex-shrink-0 w-[85%] sm:w-[60%] md:w-[45%] lg:w-[35%] bg-white rounded-xl shadow hover:shadow-lg transition flex items-center justify-center h-48 sm:h-64"
                 >
                   <span className="text-gray-500 text-base sm:text-lg font-semibold">
                     Coming Soon
